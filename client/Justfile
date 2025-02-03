@@ -1,0 +1,12 @@
+@compile:
+	PATH="../node_modules/.bin/:${PATH}" \
+		pnpm run compile
+
+# --entryPoints src/common/api.ts \
+# --entryPoints src/browser/main.ts \
+
+@docs-client:
+	pnpm dlx typedoc \
+		--tsconfig tsconfig.docs.json \
+		--html ../docs/ \
+		--entryPoints src/node/main.ts

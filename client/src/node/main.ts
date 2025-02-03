@@ -66,6 +66,7 @@ export interface ExecutableOptions {
 
 export interface Executable {
 	command: string;
+	/** Default is {@link TransportKind.stdio} */
 	transport?: Transport;
 	args?: string[];
 	options?: ExecutableOptions;

@@ -670,6 +670,20 @@ export abstract class BaseLanguageClient implements FeatureClient<Middleware, La
 	private readonly _p2c: p2c.Converter;
 	private _tabsModel: TabsModel | undefined;
 
+	/**
+	 *
+	 * @param id
+	 * 1. Used to find tracing settings in VSCode configuration:
+	 *     - `trace.server` (string or object),
+	 *     - `trace.server.verbosity`
+	 *     - `trace.server.format`
+	 * 2. Used as the default diagnostic collection name.
+	 *
+	 * @param name
+	 * Human-readable name used in messages and as the title of the output channel.
+	 *
+	 * @param clientOptions
+	 */
 	public constructor(id: string, name: string, clientOptions: LanguageClientOptions) {
 		this._id = id;
 		this._name = name;

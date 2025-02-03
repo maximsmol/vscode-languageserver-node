@@ -134,7 +134,39 @@ export class LanguageClient extends BaseLanguageClient {
 	private _isDetached: boolean | undefined;
 	private _isInDebugMode: boolean;
 
+	/**
+	 *
+	 * @param name
+	 * Human-readable name used in messages and as the title of the output channel.
+	 *
+	 * Also the `id` of {@link BaseLanguageClient} (after lowercasing), which is:
+	 * 1. Used to find tracing settings in VSCode configuration:
+	 *     - `trace.server` (string or object),
+	 *     - `trace.server.verbosity`
+	 *     - `trace.server.format`
+	 * 2. Used as the default diagnostic collection name.
+	 *
+	 * @param serverOptions
+	 * @param clientOptions
+	 * @param forceDebug Defaults to `false`.
+	 */
 	public constructor(name: string, serverOptions: ServerOptions, clientOptions: LanguageClientOptions, forceDebug?: boolean);
+	/**
+	 *
+	 * @param id
+	 * 1. Used to find tracing settings in VSCode configuration:
+	 *     - `trace.server` (string or object),
+	 *     - `trace.server.verbosity`
+	 *     - `trace.server.format`
+	 * 2. Used as the default diagnostic collection name.
+	 *
+	 * @param name
+	 * Human-readable name used in messages and as the title of the output channel.
+	 *
+	 * @param serverOptions
+	 * @param clientOptions
+	 * @param forceDebug Defaults to `false`.
+	 */
 	public constructor(id: string, name: string, serverOptions: ServerOptions, clientOptions: LanguageClientOptions, forceDebug?: boolean);
 	public constructor(arg1: string, arg2: ServerOptions | string, arg3: LanguageClientOptions | ServerOptions, arg4?: boolean | LanguageClientOptions, arg5?: boolean) {
 		let id: string;
